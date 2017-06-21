@@ -1,0 +1,1 @@
+wsimport -s "src/main/java" -d "target/classes" -p "ru.bvn13.licenseserverjclient.soap" -keep -verbose http://licenseserverj.cf/ws/checkLicense?WSDL
