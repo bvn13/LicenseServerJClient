@@ -22,7 +22,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *       &lt;sequence>
  *         &lt;element name="clientId" type="{http://www.w3.org/2001/XMLSchema}string" form="qualified"/>
  *         &lt;element name="date" type="{http://www.w3.org/2001/XMLSchema}date" form="qualified"/>
- *         &lt;element name="isValid" type="{http://www.w3.org/2001/XMLSchema}boolean" form="qualified"/>
+ *         &lt;element name="valid" type="{http://www.w3.org/2001/XMLSchema}boolean" form="qualified"/>
  *         &lt;element name="properties" type="{http://www.w3.org/2001/XMLSchema}string" form="qualified"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -36,7 +36,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 @XmlType(name = "", propOrder = {
     "clientId",
     "date",
-    "isValid",
+    "valid",
     "properties"
 })
 @XmlRootElement(name = "checkLicenseResponse")
@@ -47,7 +47,7 @@ public class CheckLicenseResponse {
     @XmlElement(required = true)
     @XmlSchemaType(name = "date")
     protected XMLGregorianCalendar date;
-    protected boolean isValid;
+    protected boolean valid;
     @XmlElement(required = true)
     protected String properties;
 
@@ -100,19 +100,19 @@ public class CheckLicenseResponse {
     }
 
     /**
-     * Gets the value of the isValid property.
+     * Gets the value of the valid property.
      * 
      */
-    public boolean isIsValid() {
-        return isValid;
+    public boolean isValid() {
+        return valid;
     }
 
     /**
-     * Sets the value of the isValid property.
+     * Sets the value of the valid property.
      * 
      */
-    public void setIsValid(boolean value) {
-        this.isValid = value;
+    public void setValid(boolean value) {
+        this.valid = value;
     }
 
     /**
