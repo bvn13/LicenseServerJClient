@@ -1,13 +1,12 @@
 package ru.bvn13.licenseserverjclient;
 
 import lombok.Getter;
-import ru.bvn13.licenseserverjclient.soap.CheckLicense;
-import ru.bvn13.licenseserverjclient.soap.CheckLicenseJ;
-import ru.bvn13.licenseserverjclient.soap.CheckLicenseResponse;
-import ru.bvn13.licenseserverjclient.soap.CheckLicenseWSService;
+import ru.bvn13.licenseserverjclient.soap.*;
 
+import javax.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
+import javax.xml.ws.WebServiceRef;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -19,6 +18,9 @@ public class LicenseChecker {
     @Getter
     private String clientId;
 
+    @WebServiceRef(wsdlLocation = "http://licenseserverj.cf/ws/checkLicense?WSDL")
+    private CheckLicenseWSService service;
+
     public LicenseChecker(String clientId) {
         this.clientId = clientId;
     }
@@ -27,24 +29,25 @@ public class LicenseChecker {
 
         URL url = null;
         try {
-            new URL("http://licenseserverj.cf/ws/checkLicense?WSDL");
+            url = new URL("http://licenseserverj.cf/ws/checkLicense?WSDL");
         } catch (MalformedURLException e) {
             e.printStackTrace();
             return false;
         }
 
-        QName qname = new QName("http://checkLicenseJ.bvn13.ru", "checkLicense");
-        CheckLicenseWSService service = (CheckLicenseWSService) CheckLicenseWSService.create(url, qname);
+        QName qname = new QName("http://checkLicenseJ.bvn13.ru", "CheckLicenseWSService");
 
-        CheckLicenseJ proxy = service.getSOAPOverHTTP();
+        Service service = Service.create(url, qname);
 
-        CheckLicense params = new CheckLicense();
-        params.getArg0().setClientId(clientId);
-        params.getArg0().setProperties(properties);
+        CheckLicenseWS checkLicenseWS = service.getPort(CheckLicenseWS.class);
 
-        CheckLicenseResponse result = (CheckLicenseResponse) proxy.checkLicense(params);
+        CheckClientLicense.Request params = new CheckClientLicense.Request();
+        params.setClientId(clientId);
+        params.setProperties(properties);
 
-        return result.getReturn().isIsValid();
+        CheckClientLicenseResponse.Response result = checkLicenseWS.checkClientLicense(params);
+
+        return result.isIsValid();
     }
 
 }

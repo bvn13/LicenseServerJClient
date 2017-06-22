@@ -24,8 +24,8 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _CheckLicense_QNAME = new QName("http://checkLicenseJ.bvn13.ru", "checkLicense");
-    private final static QName _CheckLicenseResponse_QNAME = new QName("http://checkLicenseJ.bvn13.ru", "checkLicenseResponse");
+    private final static QName _CheckClientLicense_QNAME = new QName("http://checkLicenseJ.bvn13.ru", "checkClientLicense");
+    private final static QName _CheckClientLicenseResponse_QNAME = new QName("http://checkLicenseJ.bvn13.ru", "checkClientLicenseResponse");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: ru.bvn13.licenseserverjclient.soap
@@ -35,19 +35,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CheckLicenseResponse }
+     * Create an instance of {@link CheckClientLicenseResponse }
      * 
      */
-    public CheckLicenseResponse createCheckLicenseResponse() {
-        return new CheckLicenseResponse();
+    public CheckClientLicenseResponse createCheckClientLicenseResponse() {
+        return new CheckClientLicenseResponse();
     }
 
     /**
-     * Create an instance of {@link CheckLicense }
+     * Create an instance of {@link CheckClientLicense }
      * 
      */
-    public CheckLicense createCheckLicense() {
-        return new CheckLicense();
+    public CheckClientLicense createCheckClientLicense() {
+        return new CheckClientLicense();
     }
 
     /**
@@ -59,37 +59,45 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link CheckLicenseResponse.Return }
+     * Create an instance of {@link CheckLicenseResponse }
      * 
      */
-    public CheckLicenseResponse.Return createCheckLicenseResponseReturn() {
-        return new CheckLicenseResponse.Return();
+    public CheckLicenseResponse createCheckLicenseResponse() {
+        return new CheckLicenseResponse();
     }
 
     /**
-     * Create an instance of {@link CheckLicense.Arg0 }
+     * Create an instance of {@link CheckClientLicenseResponse.Response }
      * 
      */
-    public CheckLicense.Arg0 createCheckLicenseArg0() {
-        return new CheckLicense.Arg0();
+    public CheckClientLicenseResponse.Response createCheckClientLicenseResponseResponse() {
+        return new CheckClientLicenseResponse.Response();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CheckLicense }{@code >}}
+     * Create an instance of {@link CheckClientLicense.Request }
      * 
      */
-    @XmlElementDecl(namespace = "http://checkLicenseJ.bvn13.ru", name = "checkLicense")
-    public JAXBElement<CheckLicense> createCheckLicense(CheckLicense value) {
-        return new JAXBElement<CheckLicense>(_CheckLicense_QNAME, CheckLicense.class, null, value);
+    public CheckClientLicense.Request createCheckClientLicenseRequest() {
+        return new CheckClientLicense.Request();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Object }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CheckClientLicense }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://checkLicenseJ.bvn13.ru", name = "checkLicenseResponse")
-    public JAXBElement<Object> createCheckLicenseResponse(Object value) {
-        return new JAXBElement<Object>(_CheckLicenseResponse_QNAME, Object.class, null, value);
+    @XmlElementDecl(namespace = "http://checkLicenseJ.bvn13.ru", name = "checkClientLicense")
+    public JAXBElement<CheckClientLicense> createCheckClientLicense(CheckClientLicense value) {
+        return new JAXBElement<CheckClientLicense>(_CheckClientLicense_QNAME, CheckClientLicense.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CheckClientLicenseResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://checkLicenseJ.bvn13.ru", name = "checkClientLicenseResponse")
+    public JAXBElement<CheckClientLicenseResponse> createCheckClientLicenseResponse(CheckClientLicenseResponse value) {
+        return new JAXBElement<CheckClientLicenseResponse>(_CheckClientLicenseResponse_QNAME, CheckClientLicenseResponse.class, null, value);
     }
 
 }

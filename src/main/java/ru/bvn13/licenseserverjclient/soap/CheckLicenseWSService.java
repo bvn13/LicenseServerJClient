@@ -65,11 +65,11 @@ public class CheckLicenseWSService
     /**
      * 
      * @return
-     *     returns CheckLicenseJ
+     *     returns CheckLicenseWS
      */
     @WebEndpoint(name = "SOAPOverHTTP")
-    public CheckLicenseJ getSOAPOverHTTP() {
-        return super.getPort(new QName("http://checkLicenseJ.bvn13.ru", "SOAPOverHTTP"), CheckLicenseJ.class);
+    public CheckLicenseWS getSOAPOverHTTP() {
+        return super.getPort(new QName("http://checkLicenseJ.bvn13.ru", "SOAPOverHTTP"), CheckLicenseWS.class);
     }
 
     /**
@@ -77,11 +77,11 @@ public class CheckLicenseWSService
      * @param features
      *     A list of {@link javax.xml.ws.WebServiceFeature} to configure on the proxy.  Supported features not in the <code>features</code> parameter will have their default values.
      * @return
-     *     returns CheckLicenseJ
+     *     returns CheckLicenseWS
      */
     @WebEndpoint(name = "SOAPOverHTTP")
-    public CheckLicenseJ getSOAPOverHTTP(WebServiceFeature... features) {
-        return super.getPort(new QName("http://checkLicenseJ.bvn13.ru", "SOAPOverHTTP"), CheckLicenseJ.class, features);
+    public CheckLicenseWS getSOAPOverHTTP(WebServiceFeature... features) {
+        return super.getPort(new QName("http://checkLicenseJ.bvn13.ru", "SOAPOverHTTP"), CheckLicenseWS.class, features);
     }
 
     private static URL __getWsdlLocation() {
