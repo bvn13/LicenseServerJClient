@@ -28,33 +28,31 @@ public class LicenseChecker {
 
     public CheckClientLicenseResponse.Response checkLicense(String properties) {
 
-        URL url = null;
         try {
-            url = new URL("http://licenseserverj.cf/ws/checkLicense?WSDL");
+            URL url = new URL("http://licenseserverj.cf/ws/checkLicense?WSDL");
+
+            QName qname = new QName("http://checkLicenseJ.bvn13.ru", "CheckLicenseWSService");
+
+            Service service = Service.create(url, qname);
+
+            CheckLicenseWS checkLicenseWS = service.getPort(CheckLicenseWS.class);
+
+            CheckClientLicense.Request params = new CheckClientLicense.Request();
+            params.setClientId(clientId);
+            params.setProperties(properties);
+
+            CheckClientLicenseResponse.Response result = checkLicenseWS.checkClientLicense(params);
+
+            return result;
         } catch (MalformedURLException e) {
+            CheckClientLicenseResponse.Response result = new CheckClientLicenseResponse.Response();
+            result.setClientId(this.clientId);
+            result.setProperties("error");
+            result.setValid(false);
+
             e.printStackTrace();
-            return null;
+            return result;
         }
-
-        QName qname = new QName("http://checkLicenseJ.bvn13.ru", "CheckLicenseWSService");
-
-        Service service = null;
-        try {
-            service = Service.create(url, qname);
-        } catch (WebServiceException e) {
-            e.printStackTrace();
-            return null;
-        }
-
-        CheckLicenseWS checkLicenseWS = service.getPort(CheckLicenseWS.class);
-
-        CheckClientLicense.Request params = new CheckClientLicense.Request();
-        params.setClientId(clientId);
-        params.setProperties(properties);
-
-        CheckClientLicenseResponse.Response result = checkLicenseWS.checkClientLicense(params);
-
-        return result;
     }
 
 }
