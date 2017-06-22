@@ -6,6 +6,7 @@ import ru.bvn13.licenseserverjclient.soap.*;
 import javax.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
+import javax.xml.ws.WebServiceException;
 import javax.xml.ws.WebServiceRef;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -37,7 +38,13 @@ public class LicenseChecker {
 
         QName qname = new QName("http://checkLicenseJ.bvn13.ru", "CheckLicenseWSService");
 
-        Service service = Service.create(url, qname);
+        Service service = null;
+        try {
+            service = Service.create(url, qname);
+        } catch (WebServiceException e) {
+            e.printStackTrace();
+            return null;
+        }
 
         CheckLicenseWS checkLicenseWS = service.getPort(CheckLicenseWS.class);
 
