@@ -26,9 +26,9 @@ public class LicenseChecker {
         this.clientId = clientId;
     }
 
-    public CheckClientLicenseResponse.Response checkLicense(String properties) {
+    public CheckClientLicenseResponse.Response checkLicense(String properties) throws Exception {
 
-        try {
+//        try {
             URL url = new URL("http://licenseserverj.cf/ws/checkLicense?WSDL");
 
             QName qname = new QName("http://checkLicenseJ.bvn13.ru", "CheckLicenseWSService");
@@ -44,6 +44,7 @@ public class LicenseChecker {
             CheckClientLicenseResponse.Response result = checkLicenseWS.checkClientLicense(params);
 
             return result;
+/*
         } catch (MalformedURLException e) {
             CheckClientLicenseResponse.Response result = new CheckClientLicenseResponse.Response();
             result.setClientId(this.clientId);
@@ -53,6 +54,7 @@ public class LicenseChecker {
             e.printStackTrace();
             return result;
         }
+*/
     }
 
 }
