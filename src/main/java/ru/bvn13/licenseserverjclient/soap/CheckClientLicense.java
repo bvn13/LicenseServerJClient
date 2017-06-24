@@ -23,6 +23,7 @@ import javax.xml.bind.annotation.XmlType;
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *                 &lt;sequence>
  *                   &lt;element name="clientId" type="{http://www.w3.org/2001/XMLSchema}string" form="qualified"/>
+ *                   &lt;element name="systemId" type="{http://www.w3.org/2001/XMLSchema}string" form="qualified"/>
  *                   &lt;element name="properties" type="{http://www.w3.org/2001/XMLSchema}string" form="qualified"/>
  *                 &lt;/sequence>
  *               &lt;/restriction>
@@ -82,6 +83,7 @@ public class CheckClientLicense {
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
      *       &lt;sequence>
      *         &lt;element name="clientId" type="{http://www.w3.org/2001/XMLSchema}string" form="qualified"/>
+     *         &lt;element name="systemId" type="{http://www.w3.org/2001/XMLSchema}string" form="qualified"/>
      *         &lt;element name="properties" type="{http://www.w3.org/2001/XMLSchema}string" form="qualified"/>
      *       &lt;/sequence>
      *     &lt;/restriction>
@@ -94,12 +96,15 @@ public class CheckClientLicense {
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
         "clientId",
+        "systemId",
         "properties"
     })
     public static class Request {
 
         @XmlElement(required = true)
         protected String clientId;
+        @XmlElement(required = true)
+        protected String systemId;
         @XmlElement(required = true)
         protected String properties;
 
@@ -125,6 +130,30 @@ public class CheckClientLicense {
          */
         public void setClientId(String value) {
             this.clientId = value;
+        }
+
+        /**
+         * Gets the value of the systemId property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getSystemId() {
+            return systemId;
+        }
+
+        /**
+         * Sets the value of the systemId property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setSystemId(String value) {
+            this.systemId = value;
         }
 
         /**

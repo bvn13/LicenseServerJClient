@@ -40,6 +40,7 @@ public class LicenseChecker {
             CheckClientLicense.Request params = new CheckClientLicense.Request();
             params.setClientId(clientId);
             params.setProperties(properties);
+            params.setSystemId(SystemID.encode(SystemID.getSystemID()));
 
             CheckClientLicenseResponse.Response result = checkLicenseWS.checkClientLicense(params);
 
