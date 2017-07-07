@@ -6,10 +6,10 @@
 
     <groupId>ru.bvn13</groupId>
     <artifactId>licenseserverjclient</artifactId>
-    <version>1.6</version>
+    <version>1.8.1</version>
 
 
-    <name>LicenseServerJClient</name>
+    <name>licenseserverjclient</name>
     <description>LicenseServerJ client</description>
     <url>https://github.com/bvn13/LicenseServerJClient</url>
 
@@ -94,7 +94,7 @@
                     <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
                     <branch>refs/heads/mvn-repo</branch>
                     <includes><include>**/*</include></includes>
-                    <repositoryName>LicenseServerJClient</repositoryName>
+                    <repositoryName>licenseserverjclient</repositoryName>
                     <repositoryOwner>bvn13</repositoryOwner>
                 </configuration>
                 <executions>

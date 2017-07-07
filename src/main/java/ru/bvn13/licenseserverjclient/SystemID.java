@@ -87,7 +87,7 @@ public abstract class SystemID {
 
         systemInfo += "\n" + "Available processors (cores): " + Runtime.getRuntime().availableProcessors();
         long maxMemory = Runtime.getRuntime().maxMemory();
-        systemInfo += "\n" + "Maximum memory (bytes): " + (maxMemory == Long.MAX_VALUE ? "no limit" : maxMemory);
+        //systemInfo += "\n" + "Maximum memory (bytes): " + (maxMemory == Long.MAX_VALUE ? "no limit" : maxMemory);
         String userDir = new File(System.getProperty("user.dir")).getAbsolutePath();
         String rootDir = userDir.substring(0, userDir.indexOf(File.separator)+1);
         systemInfo += "\n" + "Root dir: "+rootDir;
