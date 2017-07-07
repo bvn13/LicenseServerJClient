@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.bvn13</groupId>
-    <artifactId>licenseserverjclient</artifactId>
+    <artifactId>LicenseServerJClient</artifactId>
     <version>1.7</version>
 
 
