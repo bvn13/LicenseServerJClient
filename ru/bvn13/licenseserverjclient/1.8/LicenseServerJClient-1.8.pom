@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.bvn13</groupId>
-    <artifactId>LicenseServerJClient</artifactId>
+    <artifactId>licenseserverjclient</artifactId>
     <version>1.8</version>
 
 
-    <name>LicenseServerJClient</name>
+    <name>licenseserverjclient</name>
     <description>LicenseServerJ client</description>
     <url>https://github.com/bvn13/LicenseServerJClient</url>
 
