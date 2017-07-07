@@ -94,7 +94,7 @@
                     <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
                     <branch>refs/heads/mvn-repo</branch>
                     <includes><include>**/*</include></includes>
-                    <repositoryName>LicenseServerJClient</repositoryName>
+                    <repositoryName>licenseserverjclient</repositoryName>
                     <repositoryOwner>bvn13</repositoryOwner>
                 </configuration>
                 <executions>
