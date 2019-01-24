@@ -19,17 +19,17 @@ public class LicenseChecker {
     @Getter
     private String clientId;
 
-    @WebServiceRef(wsdlLocation = "http://licenseserverj.cf/ws/checkLicense?WSDL")
-    private CheckLicenseWSService service;
+    //@WebServiceRef(wsdlLocation = "https://licenseserverj.cf/ws/checkLicense?WSDL")
+    //private CheckLicenseWSService service;
 
     public LicenseChecker(String clientId) {
         this.clientId = clientId;
     }
 
-    public CheckClientLicenseResponse.Response checkLicense(String properties) throws Exception {
+    public CheckClientLicenseResponse.Response checkLicense(String properties, boolean useHttps) throws Exception {
 
 //        try {
-            URL url = new URL("http://licenseserverj.cf/ws/checkLicense?WSDL");
+            URL url = new URL(String.format("http%s://licenseserverj.cf/ws/checkLicense?WSDL", (useHttps ? "s" : "")));
 
             QName qname = new QName("http://checkLicenseJ.bvn13.ru", "CheckLicenseWSService");
 
